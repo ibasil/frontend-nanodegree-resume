@@ -1,6 +1,8 @@
 ## Resume Builder Project
 [Final web page](https://ibasil.github.io/frontend-nanodegree-resume/)
 
+[Result page](https://ibasil.github.io/frontend-nanodegree-resume/)
+
 1. [JavaScript Basics course](https://www.udacity.com/course/ud804)
 
 Repository include following files:
