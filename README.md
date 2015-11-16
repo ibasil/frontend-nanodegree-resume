@@ -1,6 +1,6 @@
-## How do I complete this project?
+## Resume Builder Project
 
-1. Resume Builder Project [JavaScript Basics course](https://www.udacity.com/course/ud804)
+1. [JavaScript Basics course](https://www.udacity.com/course/ud804)
 
 Repository include following files:
 * **index.html**: The main HTML document. Contains links to all of the CSS and JS resources needed to render the resume, including resumeBuilder.js.
