@@ -196,7 +196,7 @@ var projects = {
             "images": [
                 "http://placehold.it/250x100"
             ],
-            "url": "https://github.com/ibasil/frontend-nanodegree-resume"
+            "url": "https://ibasil.github.io/frontend-nanodegree-resume/"
         },
         {
             "title": "Bootstrap simple project",
@@ -205,7 +205,7 @@ var projects = {
             "images": [
                 "images/bootstrap.png"
             ],
-            "url": "https://github.com/ibasil/bootstrap"
+            "url": "https://ibasil.github.io/bootstrap/"
         }
     ]
 };
