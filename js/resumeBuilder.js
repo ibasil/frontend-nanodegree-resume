@@ -100,7 +100,7 @@ var education = {
             "name": "Bionic University",
             "location": "Kyiv, Ukraine",
             "degree": "Student",
-            "majors": [
+            "major": [
                 "Java Enterprise Edition"
             ],
             "dates": "January - April of 2015",
@@ -110,7 +110,7 @@ var education = {
             "name": "Bionic University ",
             "location": "Kyiv, Ukraine",
             "degree": "Student",
-            "majors": [
+            "major": [
                 "Java Standard Edition"
             ],
             "dates": "October - December of 2014",
@@ -120,7 +120,7 @@ var education = {
             "name": "NTUU Kyiv Polythechnic University",
             "location": "Kyiv, Ukraine",
             "degree": "Specialist",
-            "majors": [
+            "major": [
                 "Computer Science"
             ],
             "dates": "2000 - 2006",
@@ -156,27 +156,34 @@ var education = {
 };
 
 
-education.display = function(){
-	for (var school in education.schools){
-		$("#education").append(HTMLschoolStart);
-		$(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[school]["dates"]))
-									.append(HTMLschoolName.replace("%data%", education.schools[school]["name"]).replace("#", education.schools[school]["url"]))
-									.append(HTMLschoolLocation.replace("%data%", education.schools[school]["location"]));
+education.display = function () {
+    var formattedHtml, edu;
+    if (education.schools.length > 0 || education.onlineCourses.length > 0) {
 
-		for(var major in education.schools[school].majors){
-			$(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[school]["majors"][major]));
-		}
-	}
-	$("#education").append(HTMLonlineClasses);
-	for (var onlineCourse in education.onlineCourses){
-		var num = education.schools.length + parseInt(onlineCourse);
-		$("#education").append(HTMLschoolStart);
-		$(".education-entry:last").append(HTMLonlineDates.replace("%data%", education.onlineCourses[onlineCourse]["dates"]))
-									.append(HTMLonlineSchool.replace("%data%", education.onlineCourses[onlineCourse]["school"]))
-									.append(HTMLonlineTitle.replace("%data%", education.onlineCourses[onlineCourse]["title"]));
-						//			.append(HTMLonlineURL.replace("%data%", education.onlineCourses[onlineCourse]["url"]));
-	}
-}
+        $("#education").append("<div id=\"education-foldable-content\"></div>");
+        for (edu in education.schools) {
+            if (education.schools.hasOwnProperty(edu)) {
+                $("#education-foldable-content").append(HTMLschoolStart);
+                formattedHtml = HTMLschoolName.replace("%data%", education.schools[edu].name);
+                $(".education-entry:last").append(HTMLschoolDates.replace("%data%", education.schools[edu].dates));
+                $(".education-entry:last").append(formattedHtml);
+                $(".education-entry:last").append(HTMLschoolLocation.replace("%data%", education.schools[edu].location));
+                $(".education-entry:last").append(HTMLschoolDegree.replace("%data%", education.schools[edu].degree));
+                $(".education-entry:last").append(HTMLschoolMajor.replace("%data%", education.schools[edu].major));
+            }
+        }
+
+        $(".education-entry:last").append(HTMLonlineClasses);
+        for (edu in education.onlineCourses) {
+            if (education.onlineCourses.hasOwnProperty(edu)) {
+                formattedHtml = HTMLonlineTitle.replace("%data%", education.onlineCourses[edu].title);
+                $(".education-entry:last").append(formattedHtml);
+                $(".education-entry:last").append(HTMLonlineSchool.replace('%data%', education.onlineCourses[edu].school));
+                $(".education-entry:last").append(HTMLonlineDates.replace('%data%', education.onlineCourses[edu].dates));
+            }
+        }
+    }
+};
 
 var projects = {
     "projects": [
